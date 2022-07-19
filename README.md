@@ -12,6 +12,7 @@ Example: `VSH2-TemplateMaker.exe generic.json some_other.json yet_another`.
 
 ---
 #### Settings:
+Check out `generic.json` for a sample.
 ###### name: name of the template to generate, note that will also be prefixed to every function that will generated.
 ###### callbacks: array of objects that will be processed.
 ---
