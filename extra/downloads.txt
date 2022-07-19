@@ -1,0 +1,42 @@
+	{
+		/// model.
+		int boss_mdl_len = g<Name>.cfg.GetSize("boss.model");
+		char[] boss_mdl_str = new char[boss_mdl_len];
+		if (g<Name>.cfg.Get("boss.model", boss_mdl_str, boss_mdl_len) > 0)
+		{
+			PrepareModel(boss_mdl_str);
+		}
+		
+		/// model skins.
+		ConfigMap skins = g<Name>.cfg.GetSection("boss.skins");
+		PrepareAssetsFromCfgMap(skins, ResourceMaterial);
+	}
+	
+	ConfigMap sounds_sect = g<Name>.cfg.GetSection("boss.sounds");
+	if (sounds_sect != null)
+	{
+		PrepareAssetsFromCfgMap(sounds_sect.GetSection("intro"),      ResourceSound);
+		PrepareAssetsFromCfgMap(sounds_sect.GetSection("rage"),       ResourceSound);
+		PrepareAssetsFromCfgMap(sounds_sect.GetSection("jump"),       ResourceSound);
+		PrepareAssetsFromCfgMap(sounds_sect.GetSection("backstab"),   ResourceSound);
+		PrepareAssetsFromCfgMap(sounds_sect.GetSection("death"),      ResourceSound);
+		PrepareAssetsFromCfgMap(sounds_sect.GetSection("lastplayer"), ResourceSound);
+		PrepareAssetsFromCfgMap(sounds_sect.GetSection("kill"),       ResourceSound);
+		PrepareAssetsFromCfgMap(sounds_sect.GetSection("spree"),      ResourceSound);
+		PrepareAssetsFromCfgMap(sounds_sect.GetSection("win"),        ResourceSound);
+		PrepareAssetsFromCfgMap(sounds_sect.GetSection("music"),      ResourceSound);
+	}
+	ConfigMap downloads = g<Name>.cfg.GetSection("boss.downloads");
+	int downloads_size = downloads ? downloads.Size : 0;
+	for (int i = 0; i < downloads_size; i++)
+	{
+		int file_size = downloads.GetIntKeySize(i);
+		char[] file = new char[file_size];
+		downloads.GetIntKey(i, file, file_size);
+		if (!FileExists(file, true))
+		{
+			LogError("[VSH2] File doesn't exists \"%s\" ", file);
+			continue;
+		}
+		AddFileToDownloadsTable(file);
+	}
