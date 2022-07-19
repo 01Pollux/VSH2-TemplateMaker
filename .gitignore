@@ -7,6 +7,9 @@
 *.o
 *.obj
 
+# Visual Studio cache directory
+.vs/
+
 # Precompiled Headers
 *.gch
 *.pch

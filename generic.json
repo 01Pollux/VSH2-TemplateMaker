@@ -1,0 +1,583 @@
+{
+  "name": "Template",
+  "callbacks": [
+    // vsh2callbacks/boss_callbacks.sp
+    {
+      "file": "vsh2callbacks/boss_callbacks.sp",
+      "forwards": [
+        "OnBossSelected",
+        "OnBossThink",
+        "OnBossModelTimer",
+        "OnBossDeath",
+        "OnBossEquipped",
+        "OnBossEquippedPost",
+        "OnBossInitialized",
+        "OnBossPlayIntro",
+        "OnBossMedicCall",
+        "OnBossTaunt",
+        "OnVariablesReset",
+        "OnPrepRedTeam",
+        "OnRedPlayerThink",
+        "OnLastPlayer",
+        "OnBossSuperJump",
+        "OnBossWeighDown",
+        "OnBossThinkPost"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player"
+      ],
+      "extra": [
+        "is_boss: player"
+      ]
+    },
+
+    // vsh2callbacks/boss_callbacks.sp
+    {
+      "file": "vsh2callbacks/boss_callbacks.sp",
+      "forwards": [
+        "BossHealthCheck",
+        "RoundEndInfo"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "bool bossBool",
+        "char message[MAXMESSAGE]"
+      ]
+    },
+
+    // vsh2callbacks/boss_callbacks.sp
+    {
+      "file": "vsh2callbacks/boss_callbacks.sp",
+      "forwards": [
+        "OnMusic"
+      ],
+      "return": "Action",
+      "args": [
+        "char song[PLATFORM_MAX_PATH]",
+        "const VSH2Player player",
+        "float& volume"
+      ]
+    },
+
+    // vsh2callbacks/boss_callbacks.sp
+    {
+      "file": "vsh2callbacks/boss_callbacks.sp",
+      "forwards": [
+        "OnBossPickUpItem"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "const char item[64]"
+      ]
+    },
+
+    // vsh2callbacks/boss_callbacks.sp
+    {
+      "file": "vsh2callbacks/boss_callbacks.sp",
+      "forwards": [
+        "OnBossMenu"
+      ],
+      "return": "Action",
+      "args": [
+        "Menu& menu",
+        "const VSH2Player player"
+      ],
+      "extra": [
+        "include: extra/menu.txt"
+      ]
+    },
+
+    // vsh2callbacks/boss_callbacks.sp
+    {
+      "file": "vsh2callbacks/boss_callbacks.sp",
+      "forwards": [
+        "OnBossDoRageStun"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "float& distance"
+      ]
+    },
+
+    // vsh2callbacks/boss_callbacks.sp
+    {
+      "file": "vsh2callbacks/boss_callbacks.sp",
+      "forwards": [
+        "OnBossGiveRage"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "const int damage",
+        "float& calcd_rage"
+      ]
+    },
+
+    // vsh2callbacks/boss_callbacks.sp
+    {
+      "file": "vsh2callbacks/boss_callbacks.sp",
+      "forwards": [
+        "OnBossCalcHealth"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "int& max_health",
+        "const int boss_count",
+        "const int red_players"
+      ]
+    },
+
+    // vsh2callbacks/boss_callbacks.sp
+    {
+      "file": "vsh2callbacks/boss_callbacks.sp",
+      "forwards": [
+        "OnBossConditionChange"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "const TFCond cond",
+        "const bool removing"
+      ]
+    },
+
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnTouchPlayer",
+        "OnBossJarated",
+        "OnUberDeployed",
+        "OnUberLoop",
+        "OnRPSTaunt",
+        "OnMinionInitialized",
+        "OnLastPlayer"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player victim",
+        "const VSH2Player attacker"
+      ]
+    },
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnRedPlayerThinkPost"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player"
+      ]
+    },
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnTouchBuilding"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player attacker",
+        "const int building_ref"
+      ]
+    },
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnBossKillBuilding"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player attacker",
+        "const int building_ref",
+        "Event event"
+      ]
+    },
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnScoreTally"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "int& points_earned",
+        "int& queue_earned"
+      ]
+    },
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnItemOverride"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "const char[] classname",
+        "int itemdef",
+        "TF2Item& item"
+      ]
+    },
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnPlayerClimb"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "const int weapon",
+        "float& upwardvel",
+        "float& health",
+        "bool& attackdelay"
+      ]
+    },
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnBannerDeployed"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "const BannerType banner"
+      ]
+    },
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnBannerEffect"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "const VSH2Player owner",
+        "const BannerType banner"
+      ]
+    },
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnUberLoopEnd"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player medic",
+        "const VSH2Player target",
+        "float& reset_charge"
+      ]
+    },
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnRedPlayerHUD"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "char hud_text[PLAYER_HUD_SIZE]"
+      ]
+    },
+
+    // vsh2callbacks/player_callbacks.sp
+    {
+      "file": "vsh2callbacks/player_callbacks.sp",
+      "forwards": [
+        "OnRedPlayerCrits"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "int& crit_flags"
+      ]
+    },
+
+
+    // player damage callbacks
+    // vsh2callbacks/pdamage_callbacks.sp
+    {
+      "file": "vsh2callbacks/pdamage_callbacks.sp",
+      "forwards": [
+        "OnPlayerTakeFallDamage"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player victim",
+        "int& attacker",
+        "int& inflictor",
+        "float& damage",
+        "int& damagetype",
+        "int& weapon",
+        "float damageForce[3]",
+        "float damagePosition[3]",
+        "int damagecustom"
+      ]
+    },
+
+    // vsh2callbacks/pdamage_callbacks.sp
+    {
+      "file": "vsh2callbacks/pdamage_callbacks.sp",
+      "forwards": [
+        "PlayerKilled",
+        "PlayerAirblasted",
+        "PlayerHurt"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "const VSH2Player victim",
+        "Event event"
+      ]
+    },
+
+
+    // boss deal damage callbacks
+    // vsh2callbacks/bdd_callbacks.sp
+    {
+      "file": "vsh2callbacks/bdd_callbacks.sp",
+      "forwards": [
+        "OnBossDealDamage",
+        "OnBossDealDamage_OnStomp",
+        "OnBossDealDamage_OnHitDefBuff",
+        "OnBossDealDamage_OnHitCritMmmph",
+        "OnBossDealDamage_OnHitMedic",
+        "OnBossDealDamage_OnHitDeadRinger",
+        "OnBossDealDamage_OnHitCloakedSpy",
+        "OnBossDealDamage_OnHitShield"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player victim",
+        "int& attacker",
+        "int& inflictor",
+        "float& damage",
+        "int& damagetype",
+        "int& weapon",
+        "float damageForce[3]",
+        "float damagePosition[3]",
+        "int damagecustom"
+      ]
+    },
+
+    // boss take damage callbacks
+    // vsh2callbacks/btd_callbacks.sp
+    {
+      "file": "vsh2callbacks/btd_callbacks.sp",
+      "forwards": [
+        "OnBossTakeDamage",
+        "OnBossTakeDamage_OnStabbed",
+        "OnBossTakeDamage_OnTelefragged",
+        "OnBossTakeDamage_OnSwordTaunt",
+        "OnBossTakeDamage_OnHeavyShotgun",
+        "OnBossTakeDamage_OnSniped",
+        "OnBossTakeDamage_OnThirdDegreed",
+        "OnBossTakeDamage_OnHitSword",
+        "OnBossTakeDamage_OnHitFanOWar",
+        "OnBossTakeDamage_OnHitCandyCane",
+        "OnBossTakeDamage_OnMarketGardened",
+        "OnBossTakeDamage_OnPowerJack",
+        "OnBossTakeDamage_OnKatana",
+        "OnBossTakeDamage_OnAmbassadorHeadshot",
+        "OnBossTakeDamage_OnDiamondbackManmelterCrit",
+        "OnBossTakeDamage_OnHolidayPunch",
+        "OnBossAirShotProj",
+        "OnBossTakeFallDamage",
+        "OnBossTakeDamage_OnTriggerHurt",
+        "OnBossTakeDamage_OnMantreadsStom"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player victim",
+        "int& attacker",
+        "int& inflictor",
+        "float& damage",
+        "int& damagetype",
+        "int& weapon",
+        "float damageForce[3]",
+        "float damagePosition[3]",
+        "int damagecustom"
+      ]
+    },
+
+
+    // globals
+    // vsh2callbacks/global_callbacks.sp
+    {
+      "file": "vsh2callbacks/global_callbacks.sp",
+      "forwards": [
+        "OnTraceAttack"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player victim",
+        "const VSH2Player attacker",
+        "int& attacker",
+        "int& inflictor",
+        "float& damage",
+        "int& damagetype",
+        "int& ammotype",
+        "int hitbox",
+        "int hitgroup"
+      ]
+    },
+
+    // globals
+    // vsh2callbacks/global_callbacks.sp
+    {
+      "file": "vsh2callbacks/global_callbacks.sp",
+      "forwards": [
+        "OnTraceAttack"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "char message[MAXMESSAGE]"
+      ]
+    },
+
+    // globals
+    // vsh2callbacks/global_callbacks.sp
+    {
+      "file": "vsh2callbacks/global_callbacks.sp",
+      "forwards": [
+        "OnControlPointCapped"
+      ],
+      "return": "Action",
+      "args": [
+        "char cappers[MAXPLAYERS+1]",
+        "const int team",
+        "VSH2Player[] pcappers",
+        "const int capper_count"
+      ]
+    },
+
+    // globals
+    // vsh2callbacks/global_callbacks.sp
+    {
+      "file": "vsh2callbacks/global_callbacks.sp",
+      "forwards": [
+        "OnCallDownloads"
+      ],
+      "return": "Action",
+      "args": [],
+      "extra": [
+        "include: extra/downloads.txt"
+      ]
+    },
+
+    // globals
+    // vsh2callbacks/global_callbacks.sp
+    {
+      "file": "vsh2callbacks/global_callbacks.sp",
+      "forwards": [
+        "OnSoundHook"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player player",
+        "char sample[PLATFORM_MAX_PATH]",
+        "int& channel",
+        "float& volume",
+        "int& level",
+        "int& flags",
+        "float& volume"
+      ]
+    },
+
+    // globals
+    // vsh2callbacks/global_callbacks.sp
+    {
+      "file": "vsh2callbacks/global_callbacks.sp",
+      "forwards": [
+        "OnRoundStart"
+      ],
+      "return": "void",
+      "args": [
+        "const VSH2Player[] bosses",
+        "const int boss_count",
+        "const VSH2Player[] red_players",
+        "const int red_count"
+      ]
+    },
+
+    // globals
+    // vsh2callbacks/global_callbacks.sp
+    {
+      "file": "vsh2callbacks/global_callbacks.sp",
+      "forwards": [
+        "OnHelpMenu"
+      ],
+      "return": "void",
+      "args": [
+        "const VSH2Player player",
+        "Menu menu"
+      ]
+    },
+
+    // globals
+    // vsh2callbacks/global_callbacks.sp
+    {
+      "file": "vsh2callbacks/global_callbacks.sp",
+      "forwards": [
+        "OnHelpMenuSelect"
+      ],
+      "return": "void",
+      "args": [
+        "const VSH2Player player",
+        "Menu menu",
+        "int selection"
+      ]
+    },
+
+    // globals
+    // vsh2callbacks/global_callbacks.sp
+    {
+      "file": "vsh2callbacks/global_callbacks.sp",
+      "forwards": [
+        "OnDrawGameTimer"
+      ],
+      "return": "Action",
+      "args": [
+        "int& seconds"
+      ]
+    },
+
+    // globals
+    // vsh2callbacks/global_callbacks.sp
+    {
+      "file": "vsh2callbacks/global_callbacks.sp",
+      "forwards": [
+        "OnShowStats"
+      ],
+      "return": "Action",
+      "args": [
+        "const VSH2Player top_players[3]"
+      ]
+    }
+  ]
+}

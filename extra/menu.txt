@@ -1,0 +1,6 @@
+	char tostr[10];
+	IntToString(g<Name>.id, tostr, sizeof(tostr));
+	int menu_name_len = g<Name>.cfg.GetSize("boss.menu name");
+	char[] menu_name_str = new char[menu_name_len];
+	g<Name>.cfg.Get("boss.menu name", menu_name_str, menu_name_len);
+	menu.AddItem(tostr, menu_name_str);
