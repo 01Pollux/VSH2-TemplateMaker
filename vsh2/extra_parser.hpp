@@ -1,7 +1,7 @@
 #pragma once
 
 #include "json.hpp"
-#include "extra/base_class.hpp"
+#include "extra/extra_callbacks.hpp"
 
 namespace VSH2
 {
@@ -10,7 +10,7 @@ namespace VSH2
 	public:
 		ExtraParser(const std::string& name, const std::string& lowercase_name);
 
-		bool TryParse(std::ofstream& file, const nlohmann::json& data, bool is_void);
+		void TryParse(std::ofstream& file, const nlohmann::json& data, bool is_void);
 
 	private:
 		std::pair<size_t, size_t> SplitString(const std::string& str);

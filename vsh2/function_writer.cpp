@@ -127,13 +127,12 @@ namespace VSH2
 	{
 		file << "\n{";
 
-		if (!m_ExtraParser.TryParse(file, data, is_void) && is_void)
-			file << " }";
-
+		m_ExtraParser.TryParse(file, data, is_void);
+		
 		if (!is_void)
-			file << "\n\treturn Plugin_Continue;\n}\n";
+			file << "\n\treturn Plugin_Continue;\n";
 
-		file << "\n\n";
+		file << "}\n\n";
 	}
 
 

@@ -1,4 +1,6 @@
 
+#include <iostream>
+
 #include "extra_parser.hpp"
 #include "extra/is_boss_check.hpp"
 #include "extra/include_file.hpp"
@@ -11,17 +13,22 @@ namespace VSH2
 		m_Callbacks.emplace("include", make_callback<IncludeFile>(name, lowercase_name));
 	}
 
-	bool ExtraParser::TryParse(std::ofstream& file, const nlohmann::json& data, bool is_void)
+	void ExtraParser::TryParse(std::ofstream& file, const nlohmann::json& data, bool is_void)
 	{
 		auto extra = data.find("extra");
 		if (extra == data.end())
-			return false;
+			return;
 
 		for (const auto& info : *extra)
 		{
 			const std::string& str = info.get_ref<const std::string&>();
 
 			auto [tag_pos, value_pos] = SplitString(str);
+			if (value_pos == 0)
+			{
+				std::cerr << "Invalid token was found: \"" << str << "\"\n";
+				continue;
+			}
 
 			std::string tag = str.substr(0, tag_pos);
 
@@ -29,11 +36,9 @@ namespace VSH2
 			if (callback != m_Callbacks.end())
 			{
 				std::string value = str.substr(value_pos);
-				return callback->second->Parse(file, value, is_void);
+				callback->second->Parse(file, value, is_void);
 			}
 		}
-
-		return false;
 	}
 
 	std::pair<size_t, size_t> ExtraParser::SplitString(const std::string& str)

@@ -4,7 +4,7 @@
 
 namespace VSH2
 {
-	bool IncludeFile::Parse(std::ofstream& file, const std::string& str, bool is_void)
+	void IncludeFile::Parse(std::ofstream& file, const std::string& str, bool is_void)
 	{
 		std::ifstream subfile(str);
 		if (!subfile)
@@ -19,6 +19,5 @@ namespace VSH2
 		replace_strings(file_str, "<name>", m_LowerCaseName);
 
 		file << '\n' << file_str << '\n';
-		return false;
 	}
 }

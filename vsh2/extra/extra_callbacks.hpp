@@ -11,7 +11,7 @@ namespace VSH2
 		IExtraParserCallback(const std::string& name, const std::string& lowercase_name) :
 			m_Name(name), m_LowerCaseName(lowercase_name) {}
 
-		virtual bool Parse(std::ofstream& file, const std::string& str, bool is_void) = 0;
+		virtual void Parse(std::ofstream& file, const std::string& str, bool is_void) = 0;
 
 	protected:
 		void replace_strings(std::string& str, const std::string& from, const std::string& to)
