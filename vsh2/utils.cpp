@@ -27,7 +27,7 @@ namespace VSH2
 				
 				"\t\tchar plugin_name_str[MAX_BOSS_NAME_SIZE];\n"
 				"\t\tthis.cfg.Get(\"boss.plugin name\", plugin_name_str, sizeof(plugin_name_str));\n"
-				"\t\tthis.id = VSH2_RegisterPlugin(plugin_name_str);\n"
+				"\t\tthis.boss_id = VSH2_RegisterPlugin(plugin_name_str);\n"
 				"\t\tVSH2_Hook" << m_Name << "();\n\t}\n";
 			;
 
