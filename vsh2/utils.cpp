@@ -20,7 +20,7 @@ namespace VSH2
 			"\tvoid Register()\n\t{\n"
 				"\t\tthis.cfg = new ConfigMap(\"configs/saxton_hale/boss_cfgs/" << m_LowerCaseName << "_boss.cfg\");\n"
 
-				"\t\tif (template_boss.cfg == null)\n\t\t{\n"
+				"\t\tif (this.cfg == null)\n\t\t{\n"
 					"\t\t\tLogError(\"[VSH2] ERROR :: **** couldn't find 'configs/saxton_hale/boss_cfgs/" <<
 						m_LowerCaseName << "_boss.cfg'. Failed to register Boss module. ****\");\n"
 					"\t\t\treturn;\n\t\t}\n"
